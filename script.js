@@ -69,7 +69,7 @@ function spawnFallingImage() {
     img.style.left = `${Math.random() * 100}vw`;
     img.style.top = `-100px`;
 
-    const rotation = Math.random() * 360;
+    const rotation = Math.random() * 180;
 
     // ✅ Set initial transform in sync with animation
     img.style.transform = `translateY(0) rotate(${rotation}deg)`;
