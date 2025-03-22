@@ -1,15 +1,15 @@
 {
   "images": [
-    "FullSizeRender.jpeg",
-    "IMG_2361.JPG",
-    "IMG_2568.jpeg",
-    "IMG_2626.JPG",
-    "IMG_2627.JPG",
-    "IMG_2729.JPG",
-    "IMG_2915.jpeg",
-    "IMG_2975.JPG",
-    "IMG_4054.jpeg",
-    "IMG_4102.jpeg",
-    "IMG_7213.jpeg",
+    "images/FullSizeRender.jpeg",
+    "images/IMG_2361.JPG",
+    "images/IMG_2568.jpeg",
+    "images/IMG_2626.JPG",
+    "images/IMG_2627.JPG",
+    "images/IMG_2729.JPG",
+    "images/IMG_2915.jpeg",
+    "images/IMG_2975.JPG",
+    "images/IMG_4054.jpeg",
+    "images/IMG_4102.jpeg",
+    "images/IMG_7213.jpeg",
   ]
 }
