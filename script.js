@@ -58,35 +58,46 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    function spawnFallingImage() {
-        if (imageUrls.length === 0) return;
+function spawnFallingImage() {
+    if (imageUrls.length === 0) return;
 
-        const img = document.createElement("img");
-        img.src = imageUrls[Math.floor(Math.random() * imageUrls.length)];
-        img.classList.add("falling-image");
+    const img = document.createElement("img");
+    const src = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+    img.src = src;
+    img.classList.add("falling-image");
 
-        // Set random starting position
-        img.style.left = `${Math.random() * 100}vw`;
-        img.style.top = "-50px"; // Start above the screen
+    img.style.left = `${Math.random() * 100}vw`;
+    img.style.top = `-100px`;
 
-        // Set random rotation
-        const rotation = Math.random() * 180;
+    const rotation = Math.random() * 360;
 
-        img.style.width = "1000px";
-        img.style.height = "1000px";
-        img.style.transform = `translateY(0) rotate(${rotation}deg)`;
+    // ✅ Set initial transform in sync with animation
+    img.style.transform = `translateY(0) rotate(${rotation}deg)`;
 
+    // ✅ Set size (so CSS doesn't get overridden)
+    img.style.width = "1000px";
+    img.style.height = "1000px";
 
-        document.body.appendChild(img);
+    // Debug: Log size on load
+    img.onload = () => {
+        console.log("Loaded:", img.src);
+        console.log("Size:", img.naturalWidth, "x", img.naturalHeight);
+    };
 
-        // Apply animation dynamically
-        setTimeout(() => {
-            img.style.animation = `fall ${Math.random() * 2 + 2}s linear forwards`;
-        }, 10);
+    img.onerror = () => {
+        console.error("Failed to load image:", src);
+        img.remove();
+    };
 
-        // Remove the image after animation completes
-        setTimeout(() => {
-            img.remove();
-        }, 3000);
-    }
+    document.body.appendChild(img);
+
+    setTimeout(() => {
+        img.style.animation = `fall ${Math.random() * 2 + 2}s linear forwards`;
+    }, 10);
+
+    setTimeout(() => {
+        img.remove();
+    }, 3000);
+}
+
 });
