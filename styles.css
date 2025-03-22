@@ -52,24 +52,20 @@ h1 {
 
 /* Style for falling images */
 .falling-image {
-    position: absolute !important;
-    width: 1000px !important;
-    height: 1000px !important;
-    max-width: none !important;
-    max-height: none !important;
-    min-width: 1000px !important;
-    min-height: 1000px !important;
-    transform: none !important;
-    object-fit: contain !important;
-    border: 5px solid red !important;
-    z-index: 99999 !important;
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    object-fit: contain;
+    z-index: 999;
     pointer-events: none;
+    transition: opacity 0.5s ease-out;
+    opacity: 1;
 }
 
-/* Falling animation */
 @keyframes fall {
     to {
         transform: translateY(100vh) rotate(720deg);
         opacity: 0;
     }
 }
+
