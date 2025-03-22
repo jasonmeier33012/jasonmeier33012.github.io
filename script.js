@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
         img.style.top = "-50px"; // Start above the screen
 
         // Set random rotation
-        const rotation = Math.random() * 360;
+        const rotation = Math.random() * 180;
         img.style.transform = `rotate(${rotation}deg)`;
 
         document.body.appendChild(img);
