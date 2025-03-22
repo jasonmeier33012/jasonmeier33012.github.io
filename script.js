@@ -71,7 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Set random rotation
         const rotation = Math.random() * 180;
-        img.style.transform = `rotate(${rotation}deg)`;
+
+        img.style.width = "1000px";
+        img.style.height = "1000px";
+        img.style.transform = `translateY(0) rotate(${rotation}deg)`;
+
 
         document.body.appendChild(img);
 
