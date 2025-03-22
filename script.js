@@ -1,6 +1,5 @@
 console.log("Script loaded!");
 
-// Ensure script runs after DOM loads
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded!");
 
@@ -38,4 +37,52 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update every second
     setInterval(updateCounter, 1000);
     updateCounter();
+
+    let imageUrls = []; // Array to store image paths
+
+    // Load images from JSON
+    fetch("image-list.json")
+        .then(response => response.json())
+        .then(data => {
+            imageUrls = data.images;
+            console.log("Images loaded:", imageUrls);
+        })
+        .catch(error => console.error("Error loading images:", error));
+
+    // Button click event to spawn falling images
+    document.getElementById("spawnButton").addEventListener("click", function () {
+        if (imageUrls.length > 0) {
+            spawnFallingImage();
+        } else {
+            console.warn("Image list is empty or not loaded yet.");
+        }
+    });
+
+    function spawnFallingImage() {
+        if (imageUrls.length === 0) return;
+
+        const img = document.createElement("img");
+        img.src = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+        img.classList.add("falling-image");
+
+        // Set random starting position
+        img.style.left = `${Math.random() * 100}vw`;
+        img.style.top = "-50px"; // Start above the screen
+
+        // Set random rotation
+        const rotation = Math.random() * 360;
+        img.style.transform = `rotate(${rotation}deg)`;
+
+        document.body.appendChild(img);
+
+        // Apply animation dynamically
+        setTimeout(() => {
+            img.style.animation = `fall ${Math.random() * 2 + 2}s linear forwards`;
+        }, 10);
+
+        // Remove the image after animation completes
+        setTimeout(() => {
+            img.remove();
+        }, 3000);
+    }
 });
