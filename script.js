@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded!");
 
     // Set the event start date
-    const startTime = new Date(2020, 0, 1, 0, 0, 0); // Jan 1, 2020
+    const startTime = new Date(2025, 2, 1, 0, 0, 0); // Jan 1, 2020
 
     function updateCounter() {
         const now = new Date();
