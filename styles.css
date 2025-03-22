@@ -53,8 +53,8 @@ h1 {
 /* Style for falling images */
 .falling-image {
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 200px;
+    height: 200px;
     opacity: 1;
     transition: opacity 0.5s ease-out;
 }
