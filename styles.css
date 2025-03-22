@@ -53,8 +53,8 @@ h1 {
 /* Style for falling images */
 .falling-image {
     position: absolute;
-    width: 1000px;
-    height: 1000px;
+    width: 500px;
+    height: 500px;
     object-fit: contain;
     z-index: 999;
     pointer-events: none;
